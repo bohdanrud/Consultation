@@ -27,7 +27,7 @@ public class MvcConfig implements WebMvcConfigurer{
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry registry) {
 		// TODO Auto-generated method stub
-		registry.jsp().prefix("/WEB-INF/views").suffix(".jsp").viewClass(JstlView.class);
+		registry.jsp().prefix("/WEB-INF/views/").suffix(".jsp").viewClass(JstlView.class);
 	}
 
 	
