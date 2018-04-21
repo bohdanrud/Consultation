@@ -11,9 +11,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.logos.domain.AddUserRequest;
+import com.logos.mapper.UserMapper;
 import com.logos.service.UserService;
 
+import lombok.extern.log4j.Log4j;
+import lombok.extern.log4j.Log4j2;
+
 @Controller
+@Log4j2
 public class HomeController {
 
 	@Autowired
@@ -34,9 +39,13 @@ public class HomeController {
 	
 	@PostMapping("/save-user")
 	public String saveUser(@Valid @ModelAttribute("userModel") AddUserRequest request, BindingResult br) {
+		log.debug("Try to save user: " + request.getEmail());
 		if (br.hasErrors()) {
+			log.debug("Error happened. " + request);
 			return "add-user";
 		}
+		userService.saveUser(UserMapper.addUserRequestToUser(request));
+		
 		return "redirect:/";
 	}
 }

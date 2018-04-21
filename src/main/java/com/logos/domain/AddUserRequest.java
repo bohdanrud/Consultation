@@ -2,6 +2,7 @@ package com.logos.domain;
 
 import javax.validation.constraints.NotEmpty;
 
+import com.logos.validator.CheckIfEmailExists;
 import com.logos.validator.CheckPasswordMatch;
 
 import lombok.AllArgsConstructor;
@@ -20,6 +21,7 @@ public class AddUserRequest {
 	private String login;
 	
 	@NotEmpty
+	@CheckIfEmailExists
 	private String email;
 
 	@NotEmpty
