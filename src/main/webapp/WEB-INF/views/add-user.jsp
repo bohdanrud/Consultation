@@ -1,6 +1,14 @@
 <%@ include file="/WEB-INF/taglib.jsp"%>
 
+<style>
+.error{
+color: red;
+}
+
+</style>
+
 <form:form action="/save-user" modelAttribute="userModel" method="POST">
+<form:errors path="*" cssClass="error"></form:errors>
 
 	Login: <form:input path="login" />
 	<br>

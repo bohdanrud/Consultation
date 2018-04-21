@@ -2,6 +2,8 @@ package com.logos.domain;
 
 import javax.validation.constraints.NotEmpty;
 
+import com.logos.validator.CheckPasswordMatch;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,6 +13,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
+@CheckPasswordMatch
 public class AddUserRequest {
 
 	@NotEmpty
