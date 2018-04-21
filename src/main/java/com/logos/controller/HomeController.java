@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.logos.domain.AddUserRequest;
 import com.logos.service.UserService;
 
 @Controller
@@ -20,5 +21,9 @@ public class HomeController {
 		
 		return "home";
 	}
-	
+	@GetMapping("/add-user")
+	public String showAddUserForm(Model model) {
+		model.addAttribute("userModel", new AddUserRequest());
+		return "add-user";
+	}
 }
