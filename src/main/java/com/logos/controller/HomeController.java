@@ -14,7 +14,6 @@ import com.logos.domain.AddUserRequest;
 import com.logos.mapper.UserMapper;
 import com.logos.service.UserService;
 
-import lombok.extern.log4j.Log4j;
 import lombok.extern.log4j.Log4j2;
 
 @Controller
