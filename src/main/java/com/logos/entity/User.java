@@ -28,7 +28,7 @@ public class User extends BaseEntity{
 	@Column(name = "login", nullable = false, unique = true)
 	private String login;
 	
-	@Column(name = "email", nullable = false, unique = true)
+	@Column(name = "email") //, nullable = false, unique = true)
 	private String email;
 	
 	@Column(name = "password", nullable = false)
@@ -39,5 +39,8 @@ public class User extends BaseEntity{
 	
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_details_id")
-	private UserDetails userDetails;
+	private UserDetails userDetails = new UserDetails();
+	
+	@Column(name = "image_url", length = 500)
+	private String imageUrl; 
 }

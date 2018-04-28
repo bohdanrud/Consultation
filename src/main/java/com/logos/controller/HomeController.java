@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.logos.domain.AddUserRequest;
+import com.logos.entity.User;
+import com.logos.entity.enums.UserRole;
 import com.logos.mapper.UserMapper;
 import com.logos.service.UserService;
 
@@ -46,5 +48,24 @@ public class HomeController {
 		userService.saveUser(UserMapper.addUserRequestToUser(request));
 		
 		return "redirect:/";
+	}
+	
+	@GetMapping("/login")
+	public String showLogin(Model model) {
+		model.addAttribute("title", "Login Page");
+		
+		return "/login";
+	}
+	
+	@GetMapping("/register")
+	public String showRegister(Model model) {
+		model.addAttribute("userModel", new User());
+		return "register";
+	}
+	@PostMapping("/register")
+	public String registerUser(@ModelAttribute("userModel") User user) {
+		user.setRole(UserRole.ROLE_USER);
+		userService.saveUser(user);
+		return "redirect:/login";
 	}
 }
