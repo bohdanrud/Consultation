@@ -12,6 +12,8 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import lombok.Data;
+@Data
 @MappedSuperclass
 public abstract class BaseEntity {
 	

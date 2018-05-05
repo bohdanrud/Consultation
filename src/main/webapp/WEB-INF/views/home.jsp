@@ -24,3 +24,6 @@ Add: <a href="/user-list">User List</a> <br>
 	<input type="submit" value="Log Out">
 	</form:form>
 </sec:authorize>
+
+<br>
+<a href="/product/add">Add product</a>
